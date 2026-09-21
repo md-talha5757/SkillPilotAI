@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — SkillPilot AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .auth-page{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:24px;
+  }
+  .auth-card{
+    width:100%;max-width:380px;
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+    padding:36px 32px;box-shadow:var(--shadow);
+  }
+  .auth-brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk';font-weight:700;font-size:18px;margin-bottom:28px;}
+  .auth-card h2{font-size:22px;font-weight:600;margin-bottom:22px;}
+  .auth-field{margin-bottom:14px;}
+  .auth-field label{font-size:13px;font-weight:600;color:var(--ink-soft);display:block;margin-bottom:6px;}
+  .auth-field input, .auth-field select{
+    width:100%;padding:11px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);
+    font-family:inherit;font-size:14px;background:var(--bg);
+  }
+  .auth-field input:focus, .auth-field select:focus{outline:2px solid var(--primary);outline-offset:0;}
+  .auth-submit{
+    width:100%;background:var(--ink);color:#fff;padding:12px;border-radius:100px;
+    font-size:14.5px;font-weight:600;margin-top:8px;
+  }
+  .auth-submit:hover{background:var(--primary-dark);}
+  .auth-error{color:#D92D20;font-size:13px;margin-top:10px;min-height:16px;}
+  .auth-toggle{font-size:13.5px;color:var(--ink-soft);text-align:center;margin-top:20px;}
+  .auth-toggle a{color:var(--primary-dark);font-weight:600;}
+  .auth-back{display:inline-block;margin-bottom:18px;font-size:13.5px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="brand-mark" style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--primary),var(--earn));display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M2 12L11 8.5L14.5 2L22 12L14.5 22L11 15.5L2 12Z" fill="white"/></svg>
+      </div>
+      SkillPilot AI
+    </div>
+
+    <a href="index.html" class="auth-back">← Back to landing page</a>
+
+    <h2 id="auth-title">Welcome back</h2>
+
+    <form id="auth-form">
+      <div class="auth-field" id="name-field" style="display:none;">
+        <label for="name">Full name</label>
+        <input type="text" id="name" placeholder="Talha Raja">
+      </div>
+
+      <div class="auth-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="you@example.com">
+      </div>
+
+      <div class="auth-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="••••••••" minlength="6">
+      </div>
+
+      <button type="submit" class="auth-submit" id="auth-submit">Log in</button>
+      <div class="auth-error" id="auth-error"></div>
+    </form>
+
+    <div class="auth-toggle" id="auth-toggle-text">
+      Don't have an account? <a href="#" id="toggle-link">Sign up</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
