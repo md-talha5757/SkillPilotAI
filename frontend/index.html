@@ -17,7 +17,7 @@
       <div class="brand-mark">
         <svg viewBox="0 0 24 24" fill="none"><path d="M2 12L11 8.5L14.5 2L22 12L14.5 22L11 15.5L2 12Z" fill="white"/></svg>
       </div>
-      SkillPilot-AI
+      SkillPilot AI
     </div>
     <div class="nav-links">
       <a href="#problem">Why it exists</a>
@@ -28,7 +28,7 @@
   </nav>
 
   <section class="hero">
-    <div class="eyebrow">● Skill SkillPilot — B.Tech CSE, Mr.Talha</div>
+    <div class="eyebrow">● AI-powered career intelligence platform</div>
     <h1>Learn. Improve.<br><span class="grad">Earn.</span></h1>
     <p class="lead">SkillPilot AI is a learning-to-earning career intelligence platform. It doesn't stop at recommending a course — it guides you all the way to your first internship, job, or client.</p>
     <div class="hero-actions">
@@ -134,6 +134,7 @@
       <div class="side-item" data-tab="mentor">AI Mentor</div>
       <div class="side-label">Industry</div>
       <div class="side-item" data-tab="industry">Industry Demand</div>
+      <div class="side-item" data-tab="academia">Academia Dashboard</div>
     </div>
 
     <div class="app-main">
@@ -334,6 +335,35 @@
           <p id="industryEmptyState" style="color:var(--ink-soft);font-size:14px;display:none;">No demand data yet — fill the form above to add one.</p>
           <canvas id="industryChart" height="260"></canvas>
         </div>
+
+        <div class="card" style="margin-top:14px;">
+          <div class="stat-label" style="margin-bottom:12px;">Your Match Score</div>
+          <p style="color:var(--ink-soft);font-size:13px;margin-bottom:12px;">Based on your completed roadmap steps vs what companies are hiring for.</p>
+          <div id="matchScoreList"></div>
+        </div>
+      </div>
+
+      <!-- ACADEMIA DASHBOARD -->
+      <div class="tab-panel" id="tab-academia">
+        <h2>Academia Dashboard</h2>
+        <p class="app-sub">Skill gaps across all students, computed from existing roadmap progress data — no separate data entry.</p>
+
+        <div class="grid-2" style="margin-bottom:14px;">
+          <div class="card">
+            <div class="stat-label">Total Students</div>
+            <div class="stat-value" id="academiaTotalStudents">0</div>
+          </div>
+          <div class="card">
+            <div class="stat-label">Avg Roadmap Completion</div>
+            <div class="stat-value" id="academiaAvgCompletion">0%</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="stat-label" style="margin-bottom:12px;">Top Skill Gaps (most students stuck here)</div>
+          <p id="academiaEmptyState" style="color:var(--ink-soft);font-size:14px;display:none;">Not enough student data yet.</p>
+          <canvas id="academiaChart" height="220"></canvas>
+        </div>
       </div>
 
     </div>
@@ -346,6 +376,7 @@
 <script src="js/jobs.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="js/industryDashboard.js"></script>
+<script src="js/academiaDashboard.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

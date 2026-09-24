@@ -37,6 +37,17 @@ const userSchema = new mongoose.Schema({
     type: [Number], // indices into roadmapSteps that the user has checked off as "done"
     default: [],
   },
+  verifiedSkills: {
+    // Quiz + mini-project verified skills — a completed checkbox alone doesn't add here.
+    // Only added once the user passes the AI quiz (70%+) AND submits a mini-project.
+    type: [{
+      skillName: String,
+      score: Number,
+      projectChosen: String,
+      verifiedAt: Date,
+    }],
+    default: [],
+  },
   lastActivityDate: {
     type: Date, // last time the user marked any step complete — used to calculate dayStreak
     default: null,

@@ -7,6 +7,9 @@ const authRoutes = require('./routes/authRoutes');
 const aiRoutes = require('./routes/aiRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const jobRoutes = require('./routes/jobRoutes');
+const industryRoutes = require('./routes/industryRoutes');
+const academiaRoutes = require('./routes/academiaRoutes');
+const skillVerificationRoutes = require('./routes/skillVerificationRoutes');
 
 const app = express();
 
@@ -22,9 +25,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/jobs', jobRoutes);
-
-const industryRoutes = require('./routes/industryRoutes');
-app.use('/api/industry', industryRoutes); 
+app.use('/api/industry', industryRoutes);
+app.use('/api/academia', academiaRoutes);
+app.use('/api/skill', skillVerificationRoutes);
 
 // Simple health check route — visit this in browser to confirm server is alive
 app.get('/', (req, res) => {

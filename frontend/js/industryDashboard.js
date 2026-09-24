@@ -119,4 +119,37 @@ const industryPostBtn = document.getElementById('industryPostBtn');
 if (industryPostBtn){
   industryPostBtn.addEventListener('click', handleIndustryPost);
   fetchAggregateDemand(); // load chart on page load
+  loadMatchScores();
+}
+
+async function loadMatchScores(){
+  const token = localStorage.getItem('skillpilot_token');
+  if (!token) return; // not logged in, skip silently
+
+  const listEl = document.getElementById('matchScoreList');
+  if (!listEl) return;
+
+  try {
+    const res = await fetch(`${INDUSTRY_API_BASE}/match-scores`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    const scores = await res.json();
+
+    if (!scores.length){
+      listEl.innerHTML = '<p style="color:var(--ink-soft);font-size:14px;">No industry demands posted yet.</p>';
+      return;
+    }
+
+    listEl.innerHTML = scores.map(s => `
+      <div class="opp-card">
+        <div>
+          <div class="opp-title">${s.role} @ ${s.companyName}</div>
+          <div class="opp-meta">${s.skillRequired.join(', ')}</div>
+        </div>
+        <div class="match-chip">${s.matchPercent}% match</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.error('Failed to load match scores:', err);
+  }
 }
