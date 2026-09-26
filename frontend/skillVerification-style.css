@@ -1,0 +1,19 @@
+/* --- Skill Verification (Quiz + Mini-Project) styles --- */
+.skill-verify-block {
+  border-top: 1px solid var(--border);
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.skv-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.skv-slider { flex: 1; accent-color: var(--primary); }
+.skv-percent { font-size: 12.5px; font-weight: 600; color: var(--ink-soft); min-width: 32px; }
+.skv-quiz-btn {
+  background: var(--primary-tint);
+  color: var(--primary-dark);
+  border: none;
+}
